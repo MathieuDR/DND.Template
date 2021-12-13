@@ -13,6 +13,7 @@
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-output-directory=./build",
+                "-shell-escape",
                 "*.tex"
             ]
         },

@@ -3,7 +3,29 @@
     "editor.cursorBlinking": "solid",
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 80,
-    "editor.wrappingIndent": "same",
-    "latex-workshop.debug.showUpdateMessage": false,
-    "telemetry.enableTelemetry": false
+    "editor.wrappingIndent": "same",    
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "lualatex",
+        "tools": [
+          "lualatex"
+        ]
+      }
+    ],
+    "latex-workshop.latex.tools": [
+      {
+        "name": "lualatex",
+        "command": "lualatex",
+        "args": [
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-shell-escape",
+          "-output-directory=%OUTDIR%",
+          "%DOC%.tex"
+        ],
+      }
+    ],
+    "telemetry.enableTelemetry": false,
+    "latex-workshop.latex.outDir": "%DIR%/build",
+    "latex-workshop.latex.recipe.default":"first",
   }
