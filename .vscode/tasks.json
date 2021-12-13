@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+          {
+            "label": "Run lualatex",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "command": "lualatex",
+            "args": [
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-output-directory=./build",
+                "*.tex"
+            ]
+        },
+        {
+            "label": "Run bibtex",
+            "type": "shell",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "command": "bibtex",
+            "args": [
+                "-terse",
+                "*.aux"
+            ]
+        }      
+    ]
+   }
