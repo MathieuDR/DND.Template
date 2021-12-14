@@ -1,26 +1,19 @@
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                                  IMPRINT                                 │ %
 % ╘══════════════════════════════════════════════════════════════════════════╛ %
-\thispagestyle{empty}
+\begin{onecolumn}
 
-\noindent
-\begin{tabularx}{\textwidth}{rX}
-    \multicolumn{1}{l}{Git:} & \\ \hline
-    \scriptsize Branch: &
-    \scriptsize\texttt{\captureshell{git rev-parse --abbrev-ref HEAD}}\\
-    \scriptsize Commit hash: &
-    \scriptsize\texttt{\captureshell{git rev-parse HEAD}}\\
-    \scriptsize Commit date: &
-    \scriptsize\texttt{\gitcommitdate}\\
-    \hline & \\
-    \multicolumn{1}{l}{Latexmk:} & \\ \hline
-    \scriptsize Build date: & \scriptsize\texttt{\DTMnow}\\
-    \hline
-\end{tabularx}
-
-\vfill
-
-\begin{center}
-    Copyright © 2021, \textsc{\theauthor}. All rights reserved.
-\end{center}
+    \section{GIT imprint}
+    All the latest information of this pdf.
+    
+    
+    \begin{DndTable}[header=GIT]{XX}
+        Field  & Value \\
+        Author  & \texttt{\captureshell{git show --no-patch --format=\%an}} \\
+        Branch  & \texttt{\captureshell{git rev-parse --abbrev-ref HEAD}} \\
+        Hash  & \texttt{\captureshell{git rev-parse HEAD}} \\
+        Date  & \texttt{\captureshell{git show --no-patch --format=\%cI}} \\
+        Message  & \texttt{\captureshell{git show --no-patch --format=\%B}}
+    \end{DndTable}
+\end{onecolumn}
 \newpage
