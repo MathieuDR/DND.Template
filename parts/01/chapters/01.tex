@@ -1,7 +1,70 @@
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                                CHAPTER  1                                │ %
 % ╘══════════════════════════════════════════════════════════════════════════╛ %
-\chapter{Intro}
+\chapter{Sections}
 \label{p:1:ch:1}
 
-\lipsum[3]
+\DndDropCapLine{T}{his package is designed to aid you in} writing beautifully typeset documents for the fifth edition of the world's greatest roleplaying game. It starts by adjusting the section formatting from the defaults in \LaTeX{} to something a bit more familiar to the reader. The chapter formatting is displayed above.
+
+\section{Section}
+Sections break up chapters into large groups of associated text.
+
+\subsection{Subsection}
+Subsections further break down the information for the reader.
+
+\subsubsection{Subsubsection}
+Subsubsections are the furthest division of text that still have a block header. Below this level, headers are displayed inline.
+
+\paragraph{Paragraph}
+The paragraph format is seldom used in the core books, but is available if you prefer it to the ``normal'' style.
+
+\subparagraph{Subparagraph}
+The subparagraph format with the paragraph indent is likely going to be more familiar to the reader.
+
+\section{Special Sections}
+The module also includes functions to aid in the proper typesetting of multi-line section headers: |\DndFeatHeader| for feats, |\DndItemHeader| magic items and traps, and |\DndSpellHeader| for spells.
+
+\DndFeatHeader{Typesetting Savant}[Prerequisite: \LaTeX{} distribution]
+You have acquired a package which aids in typesetting source material for one of your favorite games, giving you the following benefits:
+
+\begin{itemize}
+  \item You have advantage on Intelligence checks to typeset new content.
+  \item When you fail an Intelligence check to typeset new content, you can ask questions online at the package's website.
+\end{itemize}
+
+\DndItemHeader{Foo's Quill}{Wondrous item, rare}
+This quill has 3 charges. While holding it, you can use an action to expend 1 of its charges. The quill leaps from your hand and writes a contract applicable to your situation.
+
+The quill regains 1d3 expended charges daily at dawn.
+
+\DndSpellHeader%
+  {Beautiful Typesetting}
+  {4th-level illusion}
+  {1 action}
+  {5 feet}
+  {S, M (ink and parchment, which the spell consumes)}
+  {Until dispelled}
+You are able to transform a written message of any length into a beautiful scroll. All creatures within range that can see the scroll must make a wisdom saving throw or be charmed by you until the spell ends.
+
+While the creature is charmed by you, they cannot take their eyes off the scroll and cannot willingly move away from the scroll. Also, the targets can make a wisdom saving throw at the end of each of their turns. On a success, they are no longer charmed.
+
+\section{Map Regions}
+The map region functions |\DndArea| and |\DndSubArea| provide automatic numbering of areas.
+
+\DndArea{Village of Hommlet}
+This is the village of hommlet.
+
+\DndSubArea{Inn of the Welcome Wench}
+Inside the village is the inn of the Welcome Wench.
+
+\DndSubArea{Blacksmith's Forge}
+There's a blacksmith in town, too.
+
+\DndArea{Foo's Castle}
+This is foo's home, a hovel of mud and sticks.
+
+\DndSubArea{Moat}
+This ditch has a board spanning it.
+
+\DndSubArea{Entrance}
+A five-foot hole reveals the dirt floor illuminated by a hole in the roof.

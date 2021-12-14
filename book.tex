@@ -1,11 +1,11 @@
-\documentclass[a4paper,10pt,twoside,twocolumn,openany]{book}
+\documentclass[a4paper,10pt,twoside,twocolumn,openany,final]{report}
 \usepackage{packages/preamble}
 
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                                 DOCUMENT                                 │ %
 % ╘══════════════════════════════════════════════════════════════════════════╛ %
 \begin{document}
-  \frontmatter
+  % \frontmatter
   % ╒══════════════════════════════════════════════════════════════════════════╕ %
   % │                                TITLE PAGE                                │ %
   % ╘══════════════════════════════════════════════════════════════════════════╛ %
@@ -22,24 +22,19 @@
   % │                                PRE FACE                                  │ %
   % ╘══════════════════════════════════════════════════════════════════════════╛ %
   \import{pages/}{preface.tex}
-
-  % Clear the page so we don't have an empty page for the 'main matter'
-  {
-    \renewcommand{\cleardoublepage}{\newpage}
-    \mainmatter
-  }
+  
   % ╒══════════════════════════════════════════════════════════════════════════╕ %
   % │                                 Parts                                    │ %
   % ╘══════════════════════════════════════════════════════════════════════════╛ %
+
+  \twocolumn
+  \setcounter{chapter}{0}
   \importdirnumbered{parts/}{3}
 
   % ╒══════════════════════════════════════════════════════════════════════════╕ %
   % │                                  NOTES                                   │ %
   % ╘══════════════════════════════════════════════════════════════════════════╛ %
   \ifoptionfinal{}{
-    % \import{notes/}{_.tex}
-    ...
+    \import{notes/}{_.tex}
   }
-
-
 \end{document}

@@ -16,6 +16,7 @@
 \usepackage{hyperref}
 \usepackage{ifdraft}
 \usepackage{wrapfig}
+\usepackage{tabularx}
 
 \captionsetup[table]{labelformat=empty,font={sf,sc,bf,},skip=0pt}
 
@@ -124,3 +125,6 @@
 \newcommand\twodigits[1]{%
    \ifnum#1<10 0#1\else #1\fi
 }
+
+\newcommand{\chref}[2][]{\hyperref[p:#1:ch:#2]{>P#1,#2:}}
+\newcommand{\linedbullet}{\hspace{-2.75pt}$\bullet$ \hspace{5pt}}
