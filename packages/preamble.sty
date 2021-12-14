@@ -14,6 +14,7 @@
 \usepackage{stfloats}
 \usepackage{import}
 \usepackage{hyperref}
+\usepackage{ifdraft}
 \usepackage{wrapfig}
 
 \captionsetup[table]{labelformat=empty,font={sf,sc,bf,},skip=0pt}
@@ -98,24 +99,25 @@
 \cs_generate_variant:Nn \sdaau_captureshell:Nn { Ne }
 \ExplSyntaxOff
 
+\newcount\importindex
+\newcount\importdirindex
+
 \newcommand{\importnumbered}[2]{
-  \newcount\importindex
     \importindex=1
     \loop
         \expandafter\import{#1}{\twodigits{\the\importindex}.tex}
         \advance \importindex 1
-    \ifnum \importindex<#2
+        \ifnum \importindex<#2
     \repeat
 }
 
 
 \newcommand{\importdirnumbered}[2]{
-  \newcount\importindex
-    \importindex=1
+    \importdirindex=1
     \loop
-        \expandafter\import{#1\twodigits{\the\importindex}/}{_.tex}
-        \advance \importindex 1
-    \ifnum \importindex<#2
+        {\expandafter\import{#1\twodigits{\the\importdirindex}/}{_.tex}}
+        \advance \importdirindex 1
+        \ifnum \importdirindex<#2
     \repeat
 }
 
