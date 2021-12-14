@@ -14,6 +14,7 @@
 \usepackage{stfloats}
 \usepackage{import}
 \usepackage{hyperref}
+\usepackage{wrapfig}
 
 \captionsetup[table]{labelformat=empty,font={sf,sc,bf,},skip=0pt}
 
@@ -25,18 +26,39 @@
   breaklines=true,
 }
 
-% ╒═══════════╕
-% │ PDF SETUP │
-% ╘═══════════╛
+% ╒══════════════════════════════════════════════════════════════════════════╕ %
+% │                                META  INFO                                │ %
+% ╘══════════════════════════════════════════════════════════════════════════╛ %
+
+\newcommand{\bookauthor}{AUTHOR}
+\newcommand{\booktitle}{TITLE}
+\newcommand{\booksubtitle}{SUBTITLE}
+\newcommand{\bookdate}{\today}
+\newcommand{\booktags}{D&D;Adventure}
+
+\title{\booktitle \\
+\large \booksubtitle}
+\author{\bookauthor}
+\date{\bookdate}
+
+
+% ╒══════════════════════════════════════════════════════════════════════════╕ %
+% │                                PDF SETUP                                 │ %
+% ╘══════════════════════════════════════════════════════════════════════════╛ %
+
+
 \hypersetup{
-  unicode,
-  pdflang={en-US},
+  pdflang={en-GB},
   pdfpagelayout={TwoPageRight},
   pdfborder={0 0 0},
   hidelinks,
   colorlinks=false,
   linkcolor={black},
-  urlcolor={blue}
+  urlcolor={blue},
+  pdfkeywords={\booktags},
+  pdftitle={\booktitle},
+  pdfsubject={\booksubtitle},
+  pdfauthor={\bookauthor}
 }
 
 % ╒═════════════════╕
@@ -47,6 +69,9 @@
 % ╒═════════════════╕
 % │ HEADERS/FOOTERS │
 % ╘═════════════════╛
+% \usepackage{perpage} %the perpage package
+
+% \MakePerPage{footnote} %the perpage package command
 
 % \makeatletter
 %     \edef\gitcommitdate{\@@input|"git show --no-patch --format=\@percentchar cI"}
