@@ -2,18 +2,15 @@
 % │                                  IMPRINT                                 │ %
 % ╘══════════════════════════════════════════════════════════════════════════╛ %
 \begin{onecolumn}
-
     \chapter{GIT imprint}
     All the latest information of this pdf.
     
-    
-    \begin{DndTable}[header=GIT]{XX}
+    \begin{DndTable}[header=GIT information]{XX}
         Field  & Value \\
         Author  & \texttt{\captureshell{git show --no-patch --format=\%an}} \\
         Branch  & \texttt{\captureshell{git rev-parse --abbrev-ref HEAD}} \\
         Hash  & \texttt{\captureshell{git rev-parse HEAD}} \\
         Date  & \texttt{\captureshell{git show --no-patch --format=\%cI}} \\
-        Message  & \texttt{\captureshell{git show --no-patch --format=\%B}}
+        %Message  & \texttt{\captureshell{git show --no-patch --format=\%B}} % We need to escape this or it can break us!
     \end{DndTable}
 \end{onecolumn}
-\newpage
