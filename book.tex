@@ -1,48 +1,25 @@
 \documentclass[letterpaper,twocolumn,openany,nodeprecatedcode]{dndbook}
+\usepackage{packages/preamble}
 
-% Use babel or polyglossia to automatically redefine macros for terms
-% Armor Class, Level, etc...
-% Default output is in English; captions are located in lib/dndstrings.sty.
-% If no captions exist for a language, English will be used.
-%1. To load a language with babel:
-%	\usepackage[<lang>]{babel}
-%2. To load a language with polyglossia:
-%	\usepackage{polyglossia}
-%	\setdefaultlanguage{<lang>}
-\usepackage[english]{babel}
-%\usepackage[italian]{babel}
-% For further options (multilanguage documents, hypenations, language environments...)
-% please refer to babel/polyglossia's documentation.
-
-\usepackage[utf8]{inputenc}
-\usepackage[singlelinecheck=false]{caption}
-\usepackage{lipsum}
-\usepackage{listings}
-\usepackage{shortvrb}
-\usepackage{stfloats}
-
-\captionsetup[table]{labelformat=empty,font={sf,sc,bf,},skip=0pt}
-
-\MakeShortVerb{|}
-
-\lstset{%
-  basicstyle=\ttfamily,
-  language=[LaTeX]{TeX},
-  breaklines=true,
-}
-
+% ╒══════════════════════════════════════════════════════════════════════════╕ %
+% │                                META  INFO                                │ %
+% ╘══════════════════════════════════════════════════════════════════════════╛ %
 \title{The Dark \LaTeX{} \\
 \large An Example of the dndbook Class}
 \author{The rpgTeX Team}
-\date{2020/04/21}
+\date{\today}
 
+% ╒══════════════════════════════════════════════════════════════════════════╕ %
+% │                                 DOCUMENT                                 │ %
+% ╘══════════════════════════════════════════════════════════════════════════╛ %
 \begin{document}
+    \frontmatter
 
-\frontmatter
+% ╒══════════════════════════════════════════════════════════════════════════╕ %
+% │                                TITLE PAGE                                │ %
+% ╘══════════════════════════════════════════════════════════════════════════╛ %
+    \import{pages/}{title.tex}
 
-\maketitle
-
-\tableofcontents
 
 \mainmatter%
 
@@ -50,7 +27,7 @@
 
 \chapter{Sections}
 
-\DndDropCapLine{T}{his packagse eis designed to said you in} writing beautifully typeset documents for the fifth edition of the world's greatest role playing game. It starts by adjusting the section formatting from the defaults in \LaTeX{} to something a bit more familiar to the reader. The chapter formatting is displayed above.
+\DndDropCapLine{T}{his package is designed to aid you in} writing beautifully typeset documents for the fifth edition of the world's greatest roleplaying game. It starts by adjusting the section formatting from the defaults in \LaTeX{} to something a bit more familiar to the reader. The chapter formatting is displayed above.
 
 \section{Section}
 Sections break up chapters into large groups of associated text.
@@ -107,7 +84,7 @@ Inside the village is the inn of the Welcome Wench.
 There's a blacksmith in town, too.
 
 \DndArea{Foo's Castle}
-This is foo's home, a hovel of mud and sticks.
+This is \hyperref[mnstr:foo]{foo's} home, a hovel of mud and sticks.
 
 \DndSubArea{Moat}
 This ditch has a board spanning it.
@@ -132,12 +109,14 @@ The other two environments are the |DndComment| and the |DndSidebar|. The |DndCo
 
 The |DndSidebar| is not breakable and is best used floated toward a page corner as it is below.
 
-\begin{DndSidebar}[float=!b]{Behold the DndSidebar!}
+\begin{DndSidebar}[float=b,width=\textwidth + 8pt]{Behold the DndSidebar!}
   The |DndSidebar| is used as a sidebar. It does not break over columns and is best used with a figure environment to float it to one corner of the page where the surrounding text can then flow around it.
 \end{DndSidebar}
 
+\lipsum[3-7]
+
 \section{Tables}
-The |DndTable| colors the even rows and is set to the width of a line by default.
+The |DndTable| colours the even rows and is set to the width of a line by default.
 
 \begin{DndTable}[header=Nice Table]{XX}
     Table head  & Table head \\
@@ -148,9 +127,14 @@ The |DndTable| colors the even rows and is set to the width of a line by default
 
 \chapter{Monsters and NPCs}
 
+\section{Devils}
+
+\subsection{Foo}
+Foo is an evil devil that sometimes think he is up to no good. But whenever he goes to a party he comes back drunk and with a few friends richer. If that doesn't sound like someone you want to be friends with, I don't know.
+
 % Monster stat block
-\begin{DndMonster}[float*=b,width=\textwidth + 8pt]{Monster Foo}
-  \begin{multicols}{2}
+\label{mnstr:foo}
+\begin{DndMonster}[float=ht]{Monster Foo}
     \DndMonsterType{Medium aberration (metasyntactic variable), neutral evil}
 
     % If you want to use commas in the key values, enclose the values in braces.
@@ -256,14 +240,15 @@ The |DndTable| colors the even rows and is set to the width of a line by default
       \DndMonsterLegendaryAction{Dagger Attack}{The foo makes a dagger attack.}
       \DndMonsterLegendaryAction{Create Contract (Costs 3 Actions)}{The foo presents a contract in a language it knows and waves it in the face of a creature within 10 feet. The creature must make a DC 10 Intelligence saving throw. On a failure, the creature is incapacitated until the start of the foo's next turn. A creature who cannot read the language in which the contract is written has advantage on this saving throw.}
     \end{DndMonsterLegendaryActions}
-  \end{multicols}
 \end{DndMonster}
 
-The |DndMonster| environment is used to typeset monster and NPC stat blocks. The module supplies many functions to easily typeset the contents of the stat block
+\subsection{Stat blocks}
+\paragraph{Creating a stat block}
+The |DndMonster| environment is used to typeset monster and NPC stat blocks. The module supplies many functions to easily typeset the contents of the stat block. nani
 
 \part{Customization}
 
-\chapter{Colors}
+\chapter{Colours}
 
 \begin{table*}[b]
   \caption{\DndFontTableTitle{}Colors Supported by this Package}\label{tab:colors}
