@@ -97,3 +97,28 @@
  }
 \cs_generate_variant:Nn \sdaau_captureshell:Nn { Ne }
 \ExplSyntaxOff
+
+\newcommand{\importnumbered}[2]{
+  \newcount\importindex
+    \importindex=1
+    \loop
+        \expandafter\import{#1}{\twodigits{\the\importindex}.tex}
+        \advance \importindex 1
+    \ifnum \importindex<#2
+    \repeat
+}
+
+
+\newcommand{\importdirnumbered}[2]{
+  \newcount\importindex
+    \importindex=1
+    \loop
+        \expandafter\import{#1\twodigits{\the\importindex}/}{_.tex}
+        \advance \importindex 1
+    \ifnum \importindex<#2
+    \repeat
+}
+
+\newcommand\twodigits[1]{%
+   \ifnum#1<10 0#1\else #1\fi
+}
