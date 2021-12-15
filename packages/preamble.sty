@@ -128,3 +128,10 @@
 
 \newcommand{\chref}[2][]{\hyperref[p:#1:ch:#2]{>P#1,#2:}}
 \newcommand{\linedbullet}{\hspace{-2.75pt}$\bullet$ \hspace{5pt}}
+
+% TODO markings
+\newcommand{\todo}[1]{\ifoptionfinal{}{
+    \noindent\underline{\textbf{\color{red}\%\color{red}TODO: #1\color{white}}}
+  }
+  {}
+}
