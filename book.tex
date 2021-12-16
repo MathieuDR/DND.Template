@@ -2,6 +2,13 @@
 \usepackage{packages/preamble}
 
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
+% │                                 Switches                                 │ %
+% ╘══════════════════════════════════════════════════════════════════════════╛ %
+\authornotestrue
+\dmtrue
+\playerfalse
+
+% ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                                 DOCUMENT                                 │ %
 % ╘══════════════════════════════════════════════════════════════════════════╛ %
 \begin{document}
@@ -31,10 +38,26 @@
   \setcounter{chapter}{0}
   \importdirnumbered{parts/}{3}
 
+
+  \chapter{Testing switches}
+
+  \ifdm
+    I'm a dm \\
+  \else
+    I'm not a dm! \\
+  \fi
+
+  \ifplayer
+    I'm a dm \\
+  \else
+  I'm not a player \\
+  \fi
+
   % ╒══════════════════════════════════════════════════════════════════════════╕ %
   % │                                  NOTES                                   │ %
   % ╘══════════════════════════════════════════════════════════════════════════╛ %
-  \ifoptionfinal{}{
+
+  \ifauthornotes
     \import{notes/}{_.tex}
-  }
+  \fi
 \end{document}
