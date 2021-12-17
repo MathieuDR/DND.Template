@@ -69,7 +69,7 @@
 % General dimensions
 
 % ╒═════════════════╕
-% │ HEADERS/FOOTERS │
+% │ Commands        │
 % ╘═════════════════╛
 
 \ExplSyntaxOn
@@ -100,9 +100,8 @@
 \cs_generate_variant:Nn \sdaau_captureshell:Nn { Ne }
 \ExplSyntaxOff
 
+% Import chapters with 01.tex in a directory
 \newcount\importindex
-\newcount\importdirindex
-
 \newcommand{\importnumbered}[2]{
     \importindex=1
     \loop
@@ -112,7 +111,8 @@
     \repeat
 }
 
-
+% Import the _.tex files in the directories startind with 01 to 99
+\newcount\importdirindex
 \newcommand{\importdirnumbered}[2]{
     \importdirindex=1
     \loop
@@ -122,11 +122,12 @@
     \repeat
 }
 
+% pad a digit with 0 on the left
 \newcommand\twodigits[1]{%
    \ifnum#1<10 0#1\else #1\fi
 }
 
-\newcommand{\chref}[2][]{\hyperref[p:#1:ch:#2]{>P#1,#2:}}
+% Command for lined bullets
 \newcommand{\linedbullet}{\hspace{-2.75pt}$\bullet$ \hspace{5pt}}
 
 % TODO markings
@@ -135,6 +136,9 @@
   }
   {}
 }
+
+\newcommand{\draftref}[2][]{\hyperref[#1]{#2}}
+\newcommand{\newname}[3][]{\expandafter\newcommand{#2}{\texorpdfstring{\draftref[#1]{#3}}{#3}}}
 
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                            Switch definitions                            │ %
