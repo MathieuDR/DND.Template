@@ -17,16 +17,53 @@
 \usepackage{ifdraft}
 \usepackage{wrapfig}
 \usepackage{tabularx}
+\usepackage[toc]{glossaries-extra}
 
 \captionsetup[table]{labelformat=empty,font={sf,sc,bf,},skip=0pt}
 
 \MakeShortVerb{|}
+
+
 
 \lstset{%
   basicstyle=\ttfamily,
   language=[LaTeX]{TeX},
   breaklines=true,
 }
+
+% ╒══════════════════════════════════════════════════════════════════════════╕ %
+% │                                Glossaries                                │ %
+% ╘══════════════════════════════════════════════════════════════════════════╛ %
+
+% \setglossarystyle{altlist}% Base style
+% \renewenvironment{theglossary}{% No indentation from list
+%   \begin{description}[leftmargin=*]%
+% }{\end{description}}
+
+\newglossarystyle{custom_base_style}{
+  \setglossarystyle{altlist}
+  \renewenvironment{theglossary}{% No indentation from list
+    \begin{description}[leftmargin=*]%
+  }{\end{description}}
+}
+
+\newglossarystyle{dnd_items}{
+  \setglossarystyle{custom_base_style}
+  \renewcommand*{\glsnamefont}[1]{\DndFontSubsubsection{##1}}
+}
+
+% \newglossary*{monsters}{Monsters}
+\newglossary*{items}{Magic items}
+% \newglossary*{npc}{Characters}
+
+\import{packages/dictionaries/}{items.tex}
+\GlsXtrLoadResources[
+  src={dictionaries/items},% entries in terms.bib
+  type=items,% put these entries in the 'main' (default) list
+  sort={letter-case}% sort according to this locale
+]
+
+\makeglossaries
 
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                                META  INFO                                │ %
@@ -137,8 +174,8 @@
   {}
 }
 
-\newcommand{\draftref}[2][]{\hyperref[#1]{#2}}
-\newcommand{\newname}[3][]{\expandafter\newcommand{#2}{\texorpdfstring{\draftref[#1]{#3}}{#3}}}
+% \newcommand{\draftref}[2][]{\hyperref[#1]{#2}}
+% \newcommand{\newname}[3][]{\expandafter\newcommand{#2}{\texorpdfstring{\draftref[#1]{#3}}{#3}}}
 
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                            Switch definitions                            │ %

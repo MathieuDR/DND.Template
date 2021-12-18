@@ -8,6 +8,8 @@
       {
         "name": "lualatex",
         "tools": [
+          "lualatex",
+          "glossary",
           "lualatex"
         ]
       }
@@ -23,6 +25,12 @@
           "-output-directory=%OUTDIR%",
           "%DOC%.tex"
         ],
+      },{
+        "name": "glossary",
+        "command": "bib2gls",
+        "args": [
+          "%DOC%.tex"
+        ]
       }
     ],
     "telemetry.enableTelemetry": false,

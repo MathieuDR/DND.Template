@@ -1,6 +1,5 @@
 \documentclass[a4paper,10pt,twocolumn,openany]{book}
 \usepackage{packages/preamble}
-\usepackage{packages/dictionary}
 
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                                 Switches                                 │ %
@@ -47,15 +46,23 @@
   % ╒══════════════════════════════════════════════════════════════════════════╕ %
   % │                                 Appendixes                               │ %
   % ╘══════════════════════════════════════════════════════════════════════════╛ %
+  \backmatter
   \part{Appendix}
 
-  \todo{We need to create the appendixes.
-  Preferable I want to just sort all the 'newnames' by type and/or )name}
+  % \setlength{\LTleft}{50pt}
+  %\show\printunsrtglossary
+  %\show\s@printunsrtglossary
+
+  \printunsrtglossary[type=items,style=dnd_items]
+
+  % \printglossary[type=\acronymtype]
+  % \printglossary[type=\items]
+  % \printglossary[type=\monsters]
+  % \printglossary[type=\npc]
 
   % ╒══════════════════════════════════════════════════════════════════════════╕ %
   % │                                  NOTES                                   │ %
   % ╘══════════════════════════════════════════════════════════════════════════╛ %
-
   \ifauthornotes
     \import{notes/}{_.tex}
   \fi
