@@ -46,7 +46,7 @@
   \setglossarystyle{custom_base_style}
   \renewcommand*{\glossentry}[2]{%
     \item[\glsentryitem{##1}%
-    \glstarget{##1}{\glossentryname{}}]
+    \glstarget{##1}{\glossentryname{}}] % Removing the name of the entry. This Will not reprint the name
     \glossentrydesc{##1}\glspostdescription\space ##2}%
 }
 
