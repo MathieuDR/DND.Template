@@ -24,11 +24,33 @@ The subparagraph format with the paragraph indent is likely going to be more fam
 \section{Special Sections}
 The module also includes functions to aid in the proper typesetting of multi-line section headers: |\DndFeatHeader| for feats, |\DndItemHeader| magic items and traps, and |\DndSpellHeader| for spells.
 
-\import{../../../appendix/feats/}{TypesettingSavant.tex}
+\label{f:TypesettingSavant}
 
-\import{../../../appendix/items/}{FoosQuill.tex}
+\DndFeatHeader{Type setting savant}[Prerequisite: \LaTeX{} distribution]
+You have acquired a package which aids in typesetting source material for one of your favourite games, giving you the following benefits:
 
-\import{../../../appendix/spells/}{BeautifulTypesetting.tex}
+\begin{itemize}
+  \item You have advantage on Intelligence checks to typeset new content.
+  \item When you fail an Intelligence check to typeset new content, you can ask questions online at the package's website.
+  \item Really good at using \todo{Use gls}
+\end{itemize}
+
+()\DndItemHeader{\Gls{FoosQuill}}{Wondrous item, rare}
+This quill has 3 charges. While holding it, you can use an action to expend 1 of its charges. The quill leaps from your hand and writes a contract applicable to your situation.
+
+The quill regains 1d3 expended charges daily at dawn.
+
+\label{s:BeautifulTypesetting}
+\DndSpellHeader%
+  {Beautiful Typesetting}
+  {4th-level illusion}
+  {1 action}
+  {5 feet}
+  {S, M (ink and parchment, which the spell consumes)}
+  {Until dispelled}
+You are able to transform a written message of any length into a beautiful scroll. All creatures within range that can see the scroll must make a wisdom saving throw or be charmed by you until the spell ends.
+
+While the creature is charmed by you, they cannot take their eyes off the scroll and cannot willingly move away from the scroll. Also, the targets can make a wisdom saving throw at the end of each of their turns. On a success, they are no longer charmed.
 
 \section{Map Regions}
 The map region functions |\DndArea| and |\DndSubArea| provide automatic numbering of areas.

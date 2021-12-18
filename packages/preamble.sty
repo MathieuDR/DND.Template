@@ -13,17 +13,16 @@
 \usepackage{shortvrb}
 \usepackage{stfloats}
 \usepackage{import}
-\usepackage{hyperref}
 \usepackage{ifdraft}
 \usepackage{wrapfig}
 \usepackage{tabularx}
-\usepackage[toc]{glossaries-extra}
+\usepackage[titletoc]{appendix}
+\usepackage{hyperref}
+\usepackage[toc,numberedsection]{glossaries-extra}
 
 \captionsetup[table]{labelformat=empty,font={sf,sc,bf,},skip=0pt}
 
 \MakeShortVerb{|}
-
-
 
 \lstset{%
   basicstyle=\ttfamily,
@@ -35,26 +34,25 @@
 % │                                Glossaries                                │ %
 % ╘══════════════════════════════════════════════════════════════════════════╛ %
 
-% \setglossarystyle{altlist}% Base style
-% \renewenvironment{theglossary}{% No indentation from list
-%   \begin{description}[leftmargin=*]%
-% }{\end{description}}
-
 \newglossarystyle{custom_base_style}{
   \setglossarystyle{altlist}
   \renewenvironment{theglossary}{% No indentation from list
     \begin{description}[leftmargin=*]%
-  }{\end{description}}
+  }{\end{description}}  
+  \renewcommand*{\glsnamefont}[1]{\DndFontSubsubsection{##1}}
 }
 
-\newglossarystyle{dnd_items}{
+\newglossarystyle{statblocks_style}{
   \setglossarystyle{custom_base_style}
-  \renewcommand*{\glsnamefont}[1]{\DndFontSubsubsection{##1}}
+  \renewcommand*{\glossentry}[2]{%
+    \item[\glsentryitem{##1}%
+    \glstarget{##1}{\glossentryname{}}]
+    \glossentrydesc{##1}\glspostdescription\space ##2}%
 }
 
 % \newglossary*{monsters}{Monsters}
 \newglossary*{items}{Magic items}
-% \newglossary*{npc}{Characters}
+\newglossary*{statblocks}{Statblocks}
 
 \import{packages/dictionaries/}{items.tex}
 \GlsXtrLoadResources[
@@ -63,7 +61,12 @@
   sort={letter-case}% sort according to this locale
 ]
 
-\makeglossaries
+\import{packages/dictionaries/}{statblocks.tex}
+\GlsXtrLoadResources[
+  src={dictionaries/statblocks},% entries in terms.bib
+  type=statblocks,% put these entries in the 'main' (default) list
+  sort={letter-case}% sort according to this locale
+]
 
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                                META  INFO                                │ %
@@ -174,8 +177,8 @@
   {}
 }
 
-% \newcommand{\draftref}[2][]{\hyperref[#1]{#2}}
-% \newcommand{\newname}[3][]{\expandafter\newcommand{#2}{\texorpdfstring{\draftref[#1]{#3}}{#3}}}
+% Chapter references
+\newcommand{\chref}[2][]{\hyperref[p:#1:ch:#2]{>P#1,#2:}}
 
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                            Switch definitions                            │ %

@@ -4,7 +4,7 @@
 % ╒══════════════════════════════════════════════════════════════════════════╕ %
 % │                                 Switches                                 │ %
 % ╘══════════════════════════════════════════════════════════════════════════╛ %
-%\authornotestrue
+\authornotestrue
 \dmtrue
 %\playertrue
 
@@ -46,19 +46,10 @@
   % ╒══════════════════════════════════════════════════════════════════════════╕ %
   % │                                 Appendixes                               │ %
   % ╘══════════════════════════════════════════════════════════════════════════╛ %
-  \backmatter
-  \part{Appendix}
 
-  % \setlength{\LTleft}{50pt}
-  %\show\printunsrtglossary
-  %\show\s@printunsrtglossary
-
-  \printunsrtglossary[type=items,style=dnd_items]
-
-  % \printglossary[type=\acronymtype]
-  % \printglossary[type=\items]
-  % \printglossary[type=\monsters]
-  % \printglossary[type=\npc]
+  \part{appendices}
+  \appendix
+    \import{pages/}{glossaries.tex}
 
   % ╒══════════════════════════════════════════════════════════════════════════╕ %
   % │                                  NOTES                                   │ %
